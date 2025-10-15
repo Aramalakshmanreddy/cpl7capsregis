@@ -31,9 +31,12 @@ export default function CPL7CaptainForm() {
     }
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!emailRegex.test(formData.email)) {
+    // if (!formData.email.trim()) {
+    //   newErrors.email = 'Email is required';
+    // } else if (!emailRegex.test(formData.email)) {
+    //   newErrors.email = 'Please enter a valid email address';
+    // }
+    if (formData.email.trim() && !emailRegex.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
     
@@ -204,7 +207,7 @@ export default function CPL7CaptainForm() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                    Email Address (Optional)
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
